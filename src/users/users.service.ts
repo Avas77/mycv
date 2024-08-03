@@ -14,4 +14,14 @@ export class UsersService {
     });
     return this.repo.save(user);
   }
+
+  findOne(id: number) {
+    return this.repo.findOneBy({
+      id,
+    });
+  }
+
+  findAll() {
+    return this.repo.find();
+  }
 }
