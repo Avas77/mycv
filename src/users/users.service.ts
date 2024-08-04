@@ -34,4 +34,13 @@ export class UsersService {
       console.log('User not found');
     }
   }
+
+  async remove(id: number) {
+    try {
+      const user = await this.findOne(id);
+      return this.repo.remove(user);
+    } catch (error) {
+      console.log('User not found');
+    }
+  }
 }
