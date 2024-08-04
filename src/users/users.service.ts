@@ -24,4 +24,14 @@ export class UsersService {
   findAll() {
     return this.repo.find();
   }
+
+  async update(id: number, attrs: Partial<User>) {
+    try {
+      const user = await this.findOne(id);
+      Object.assign(user, attrs);
+      return this.repo.save(user);
+    } catch (error) {
+      console.log('User not found');
+    }
+  }
 }
